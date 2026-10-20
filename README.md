@@ -2,6 +2,21 @@
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
+## Deploying to a shared host
+
+The GitHub Actions workflow in `.github/workflows/deploy_to_shared_host.yml` builds the app and deploys `dist/` to the shared host when changes are pushed to `main`. It can also be started manually from the Actions tab.
+
+Add these repository secrets under **Settings > Secrets and variables > Actions**:
+
+- `FTP_SERVER`: the host name of the FTP server
+- `FTP_USERNAME`: the FTP account username
+- `FTP_PASSWORD`: the FTP account password
+
+Optionally, add these repository variables under **Settings > Secrets and variables > Actions > Variables**:
+
+- `FTP_SERVER_DIR`: the destination directory, including leading and trailing slashes (defaults to `/public_html/`)
+- `FTP_PROTOCOL`: `ftps` (the default) or `ftp`; prefer `ftps` to encrypt credentials and file transfers
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
